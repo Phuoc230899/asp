@@ -1,0 +1,17 @@
+Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+PagedList.Core.Mvc
+
+
+AspNetCoreHero.ToastNotification
+// them vao cuoi AdminLayout
+@await Component.InvokeAsync("Notyf")
+@await RenderSectionAsync("Scripts", required: false)
+
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews().AddRazorRuntimeCompilation();
+    services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
+}
